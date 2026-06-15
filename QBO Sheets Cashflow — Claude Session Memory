@@ -1,0 +1,39 @@
+Fair point. Here's a plain text version you can just paste into a new chat:
+
+---
+
+**PROJECT: QBO Sheets Cashflow — Claude Session Memory**
+Jeff Byrd Bookkeeping LLC | jeffbyrdbookkeeping@gmail.com
+Session: June 7-14, 2026
+
+**ABOUT THE USER**
+Beginner coder. Always needs hand-holding and full code blocks — never snippets.
+
+**WHAT WE BUILT**
+A Google Apps Script bound to a Google Sheet called "ClientA Flow" that pulls a cash-basis monthly P&L report from QuickBooks Online and writes it into the sheet starting at row 5.
+
+**SCRIPT PROPERTIES**
+- QBO_CLIENT_ID: AB25stO46AZHXpMENNNGI0kGh6fZ6VwDu5qgs3GwxI7COlS2yK
+- QBO_CLIENT_SECRET: 15mWMEA5eYrrqnWajXwP4v9cYUFyGgUpplCso5EU
+- QBO_REALM_ID: 9341454232012536 (live Jeff Byrd Bookkeeping company)
+- WEB_APP_URL: https://script.google.com/macros/s/AKfycbzILqFzo7OmMSxTLQMbqGzxQt-i4NtYvEnxR_wjq6Zj2ZyWLX26eyyI00m57ppaCuMM/exec
+- QBO_TOKEN_EXPIRES: 9999999999 (when using manual tokens)
+
+**KNOWN ISSUE**
+The auth button in the spreadsheet doesn't work — Intuit rejects the /exec URL as a redirect URI for unknown reasons. Workaround: get tokens manually from the OAuth Playground every ~100 days.
+
+**TOKEN REFRESH**
+1. Go to developer.intuit.com/app/developer/playground
+2. Select workspace: J17G - Sheets Cashflow
+3. Select app: J17G Sheets Cashflow (Production)
+4. Check com.intuit.quickbooks.accounting scope
+5. Get authorization code > connect Jeff Byrd Bookkeeping > Get tokens
+6. Paste Access token into QBO_ACCESS_TOKEN
+7. Paste Refresh token into QBO_REFRESH_TOKEN
+8. Set QBO_TOKEN_EXPIRES to 9999999999
+9. Run sync from sheet menu
+
+**CODE**
+github.com/bugfights/-qbo-sheets-sync
+
+---
